@@ -3,14 +3,21 @@ project:
   output-dir: docs
 
 website:
+  favicon: images/jesus.png
+  # x-card: true
   title: "blogs"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/kirubeltadesse
+      - text: "{{< iconify streamline-logos:x-twitter-logo twitter >}}"
+        href: https://x.com/kirubelmel
+      - icon: linkedin
+        href: https://linkedin.com/in/kirubeltadesse
+      - icon: web
+        href: https://kirubeltadesse.github.io
+
 format:
   html:
     theme:
