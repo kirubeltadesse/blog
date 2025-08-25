@@ -1,20 +1,18 @@
 ---
 title: "About"
-image: profile.jpg
+image: profile.png
 about:
   template: jolla
   links:
       - icon: github
         text: Github
         href: https://github.com/kirubeltadesse
-      - icon: x
-        text: X
+      - text: "{{< iconify streamline-logos:x-twitter-logo twitter >}}"
         href: https://x.com/kirubelmel
       - icon: linkedin
         text: LinkedIn
         href: https://linkedin.com/in/kirubeltadesse
-      - icon: website
-        text: Website 
+      - text: "{{< iconify geo:ui-earth-west >}} Website"
         href: https://kirubeltadesse.github.io
 ---
 
