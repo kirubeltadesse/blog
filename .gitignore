@@ -1,2 +1,4 @@
-*/.quarto
-*/_extensions
+.quarto/
+_extensions/
+*._ipynb_checkpoints/
+.DS_Store
