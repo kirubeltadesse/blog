@@ -15,7 +15,7 @@ website:
         href: https://x.com/kirubelmel
       - icon: linkedin
         href: https://linkedin.com/in/kirubeltadesse
-      - icon: web
+      - text: "{{< iconify geo:ui-earth-west >}} "
         href: https://kirubeltadesse.github.io
 
 format:
