@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  blog:
+    build: .
+    ports:
+      - 5555:5555
+    volumes:
+      - .:/docs
+    command: ["quarto", "preview", "--port", "5555", "--host", "0.0.0.0"]
