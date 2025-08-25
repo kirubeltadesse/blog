@@ -25,6 +25,41 @@
     "href": "index.html",
     "title": "blog",
     "section": "",
-    "text": "Post With Code\n\n\n\nnews\n\ncode\n\nanalysis\n\n\n\n\n\n\n\n\n\nAug 25, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nAug 22, 2025\n\n\nTristan O’Malley\n\n\n\n\n\nNo matching items"
+    "text": "Deploying to huggingface.co\n\n\n\nML\n\nModel\n\nhuggingface\n\n\n\n\n\n\n\n\n\nApr 25, 2024\n\n\nKirubel Tadesse\n\n\n\n\n\n\n\n\n\n\n\n\nStart going through fast.ai open course and trained image classifier.\n\n\n\nML\n\nClassification\n\nKaggle\n\n\n\n\n\n\n\n\n\nMar 7, 2024\n\n\nKirubel Tadessse\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/Is_it_a_bird/Is_it_a_bird.html",
+    "href": "posts/Is_it_a_bird/Is_it_a_bird.html",
+    "title": "Start going through fast.ai open course and trained image classifier.",
+    "section": "",
+    "text": "from fastcore.all import *\nfrom fastbook import search_images_ddg"
+  },
+  {
+    "objectID": "posts/Is_it_a_bird/Is_it_a_bird.html#downloading-image-using-the-url",
+    "href": "posts/Is_it_a_bird/Is_it_a_bird.html#downloading-image-using-the-url",
+    "title": "Start going through fast.ai open course and trained image classifier.",
+    "section": "Downloading image using the URL",
+    "text": "Downloading image using the URL\nfrom fastdownload import download_url\ndest = 'bird.jpg'\ndownload_url(urls[0], dest, show_progress=False)\n\nfrom fastai.vision.all import *\nim = Image.open(dest)\nim.to_thumb(256,256)\n\n\n\npng\n\n\n# hide\ndownload_url(search_images('forest photos', max_images=1)[0], 'forest.jpg', show_progress=False)\nImage.open('forest.jpg').to_thumb(256,256)\nSearching for 'forest photos'\n\n\n\npng\n\n\nsearches = 'forest', 'bird'\npath = Path('bird_or_not')\nfrom time import sleep\nfor o in searches:\n    dest = (path/o)\n    dest.mkdir(exist_ok=True, parents=True)\n    download_images(dest, urls=search_images(f'{o} photo'))\n    sleep(2)\n    download_images(dest, urls=search_images(f'{o} sun photo'))\n    sleep(1)\n    download_images(dest, urls=search_images(f'{o} shade photo'))\n    sleep(2)\n    resize_images(path/o, max_size=400, dest=path/o)\nSearching for 'forest photo'\nSearching for 'forest sun photo'\nSearching for 'forest shade photo'\nSearching for 'bird photo'\nSearching for 'bird sun photo'\nSearching for 'bird shade photo'"
+  },
+  {
+    "objectID": "posts/Is_it_a_bird/Is_it_a_bird.html#step-2-train-our-model",
+    "href": "posts/Is_it_a_bird/Is_it_a_bird.html#step-2-train-our-model",
+    "title": "Start going through fast.ai open course and trained image classifier.",
+    "section": "Step 2: Train our model",
+    "text": "Step 2: Train our model\nfailed = verify_images(get_image_files(path))\nfailed.map(Path.unlink)\nlen(failed)\n6\n\nUsing the DataLoaders\ndls = DataBlock(\n    blocks=(ImageBlock, CategoryBlock),\n    get_items=get_image_files,\n    splitter=RandomSplitter(valid_pct=0.2, seed=42),\n    get_y=parent_label,\n    item_tfms=[Resize(192, method='squish')]\n).dataloaders(path, bs=32)\ndls.show_batch(max_n=6)\n\n\n\npng\n\n\nlearn = vision_learner(dls, resnet18, metrics=error_rate)\nlearn.fine_tune(3)\nDownloading: \"https://download.pytorch.org/models/resnet18-f37072fd.pth\" to /home/kirubel/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth\n100%|██████████| 44.7M/44.7M [00:01&lt;00:00, 44.1MB/s]\n\n\n\n\n\nepoch\n\n\ntrain_loss\n\n\nvalid_loss\n\n\nerror_rate\n\n\ntime\n\n\n\n\n\n\n0\n\n\n0.349523\n\n\n0.017476\n\n\n0.012903\n\n\n00:42\n\n\n\n\n\n\n\n\n\nepoch\n\n\ntrain_loss\n\n\nvalid_loss\n\n\nerror_rate\n\n\ntime\n\n\n\n\n\n\n0\n\n\n0.055393\n\n\n0.066558\n\n\n0.012903\n\n\n00:50\n\n\n\n\n1\n\n\n0.044839\n\n\n0.027144\n\n\n0.012903\n\n\n00:52\n\n\n\n\n2\n\n\n0.026491\n\n\n0.048613\n\n\n0.012903\n\n\n00:49"
+  },
+  {
+    "objectID": "posts/Is_it_a_bird/Is_it_a_bird.html#step-3-use-our-model-and-build-your-own",
+    "href": "posts/Is_it_a_bird/Is_it_a_bird.html#step-3-use-our-model-and-build-your-own",
+    "title": "Start going through fast.ai open course and trained image classifier.",
+    "section": "Step 3: Use our model (and build your own!)",
+    "text": "Step 3: Use our model (and build your own!)\nis_bird,_,probs = learn.predict(PILImage.create('bird.jpg'))\nprint(f\"This is a: {is_bird}.\")\nprint(f\"Probability it's a bird: {probs[0]:.4f}\")\n\nThis is a: bird.\nProbability it's a bird: 1.0000"
+  },
+  {
+    "objectID": "posts/huggingface/cat_dog_model.html",
+    "href": "posts/huggingface/cat_dog_model.html",
+    "title": "Deploying to huggingface.co",
+    "section": "",
+    "text": "Uploaded a classifier model onto huggingface.co following the course work from fast.ai course."
   }
 ]
