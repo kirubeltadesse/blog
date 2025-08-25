@@ -16,4 +16,4 @@ about:
         href: https://kirubeltadesse.github.io
 ---
 
-About this blog
+"If you thought of something more than three times, it is time to write a blog about it!"
