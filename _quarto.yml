@@ -1,8 +1,9 @@
 project:
   type: website
+  output-dir: docs
 
 website:
-  title: "myblog"
+  title: "blogs"
   navbar:
     right:
       - about.qmd
@@ -16,6 +17,3 @@ format:
       - cosmo
       - brand
     css: styles.css
-
-
-
