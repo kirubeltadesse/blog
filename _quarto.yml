@@ -5,9 +5,13 @@ project:
 website:
   favicon: images/jesus.png
   # x-card: true
-  title: "blogs"
+  title: "{{< iconify geo:ui-earth-west >}} Home"
+
   navbar:
+    logo-href: ../
     right:
+      - text: "Blogs"
+        href: /
       - about.qmd
       - icon: github
         href: https://github.com/kirubeltadesse
@@ -15,8 +19,6 @@ website:
         href: https://x.com/kirubelmel
       - icon: linkedin
         href: https://linkedin.com/in/kirubeltadesse
-      - text: "{{< iconify geo:ui-earth-west >}} "
-        href: https://kirubeltadesse.github.io
 
 format:
   html:

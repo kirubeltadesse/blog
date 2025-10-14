@@ -4,6 +4,8 @@ image: profile.png
 about:
   template: jolla
   links:
+      - text: "{{< iconify geo:ui-earth-west >}} Website"
+        href: https://kirubeltadesse.github.io
       - icon: github
         text: Github
         href: https://github.com/kirubeltadesse
@@ -12,8 +14,6 @@ about:
       - icon: linkedin
         text: LinkedIn
         href: https://linkedin.com/in/kirubeltadesse
-      - text: "{{< iconify geo:ui-earth-west >}} Website"
-        href: https://kirubeltadesse.github.io
 ---
 
 "If you thought of something more than three times, it is time to write a blog about it!"
