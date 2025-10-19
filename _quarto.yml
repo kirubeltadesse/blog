@@ -8,7 +8,7 @@ website:
   title: "{{< iconify geo:ui-earth-west >}} Home"
 
   navbar:
-    logo-href: ../
+    logo-href: /../
     right:
       - text: "Blogs"
         href: /
