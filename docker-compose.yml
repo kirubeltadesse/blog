@@ -1,9 +1,9 @@
 version: "3.8"
 services:
   blog:
-    build: .
+    image: klakegg/hugo:latest
     ports:
-      - 5555:5555
+      - 1313:1313
     volumes:
-      - .:/docs
-    command: ["quarto", "preview", "--port", "5555", "--host", "0.0.0.0"]
+      - .:/src
+    command: ["server", "--bind", "0.0.0.0", "--port", "1313", "-D"]

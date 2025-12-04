@@ -1,28 +1,9 @@
 project:
-  type: website
-  output-dir: docs
-
-website:
-  favicon: images/jesus.png
-  # x-card: true
-  title: "{{< iconify geo:ui-earth-west >}} Home"
-
-  navbar:
-    logo-href: /../
-    right:
-      - text: "Blogs"
-        href: /
-      - about.qmd
-      - icon: github
-        href: https://github.com/kirubeltadesse
-      - text: "{{< iconify streamline-logos:x-twitter-logo twitter >}}"
-        href: https://x.com/kirubelmel
-      - icon: linkedin
-        href: https://linkedin.com/in/kirubeltadesse
-
-format:
-  html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.css
+  type: hugo
+      
+format: 
+  hugo-md:
+    code-fold: true
+  
+execute: 
+  warning: false

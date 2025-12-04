@@ -1,3 +1,5 @@
+FROM klakegg/hugo:latest AS hugo
+
 FROM ubuntu:22.04 
 
 RUN apt-get update && apt-get install -y \
@@ -8,17 +10,19 @@ RUN apt-get update && apt-get install -y \
     libicu70
 
 # Install Quarto
-RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.7.33/quarto-1.7.33-linux-arm64.deb \
-    && apt-get install -y ./quarto-1.7.33-linux-arm64.deb \
-    && rm quarto-1.7.33-linux-arm64.deb
+RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.7.33/quarto-1.7.33-linux-amd64.deb \
+    && dpkg -i quarto-1.7.33-linux-amd64.deb \
+    && rm quarto-1.7.33-linux-amd64.deb
 
-RUN quarto add mcanouil/quarto-iconify
+# Copy Hugo from the klakegg image
+COPY --from=hugo /usr/lib/hugo/hugo /usr/local/bin/hugo
 
-WORKDIR /docs
+WORKDIR /site
 
-EXPOSE 5555
+EXPOSE 1313
 
-COPY . /docs/
+COPY . /site/
 
-RUN quarto render
+# Render Quarto files to Hugo markdown, then build with Hugo
+RUN quarto render && hugo --gc --minify
 

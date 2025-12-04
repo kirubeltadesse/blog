@@ -1,6 +1,14 @@
+# Hugo
+resources/
+.hugo_build.lock
+
+# Quarto
 .quarto/
-_extensions/
+/.quarto/
+
+# Generated files in docs (Hugo copies source files)
+docs/**/*.qmd
+
+# General
 *._ipynb_checkpoints/
 .DS_Store
-
-/.quarto/

@@ -1,0 +1,62 @@
+baseURL: https://kirubeltadesse.github.io/blog/
+languageCode: en-us
+title: Kirubel's Blog
+theme: PaperMod
+
+params:
+  author: Kirubel Tadesse
+  favicon: images/jesus.png
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  ShowToc: true
+  TocOpen: false
+  
+  homeInfoParams:
+    Title: "Welcome to my Blog"
+    Content: "If you thought of something more than three times, it is time to write a blog about it!"
+
+  socialIcons:
+    - name: github
+      url: https://github.com/kirubeltadesse
+    - name: x
+      url: https://x.com/kirubelmel
+    - name: linkedin
+      url: https://linkedin.com/in/kirubeltadesse
+
+menu:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 20
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 30
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    style: monokai
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+publishDir: docs
