@@ -7,18 +7,11 @@
     "text": "“If you thought of something more than three times, it is time to write a blog about it!”"
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/huggingface/cat_dog_model.html",
+    "href": "posts/huggingface/cat_dog_model.html",
+    "title": "Deploying to huggingface.co",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
+    "text": "Uploaded a classifier model onto huggingface.co following the course work from fast.ai course."
   },
   {
     "objectID": "index.html",
@@ -54,12 +47,5 @@
     "title": "Start going through fast.ai open course and trained image classifier.",
     "section": "Step 3: Use our model (and build your own!)",
     "text": "Step 3: Use our model (and build your own!)\nis_bird,_,probs = learn.predict(PILImage.create('bird.jpg'))\nprint(f\"This is a: {is_bird}.\")\nprint(f\"Probability it's a bird: {probs[0]:.4f}\")\n\nThis is a: bird.\nProbability it's a bird: 1.0000"
-  },
-  {
-    "objectID": "posts/huggingface/cat_dog_model.html",
-    "href": "posts/huggingface/cat_dog_model.html",
-    "title": "Deploying to huggingface.co",
-    "section": "",
-    "text": "Uploaded a classifier model onto huggingface.co following the course work from fast.ai course."
   }
 ]
