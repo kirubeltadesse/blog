@@ -1,1 +1,182 @@
-/* css styles */
+/* Custom styles to match kirubeltadesse.github.io look and feel */
+
+/* CSS Variables for theming - matching main website */
+:root {
+  --global-bg-color: #fff;
+  --global-code-bg-color: rgba(181, 9, 172, 0.05);
+  --global-text-color: #000;
+  --global-text-color-light: #828282;
+  --global-theme-color: #B509AC;
+  --global-hover-color: #B509AC;
+  --global-footer-bg-color: #1C1C1D;
+  --global-footer-text-color: #e8e8e8;
+  --global-footer-link-color: #fff;
+  --global-divider-color: rgba(0, 0, 0, 0.1);
+  --global-card-bg-color: #fff;
+}
+
+/* Dark mode styles */
+[data-bs-theme="dark"] {
+  --global-bg-color: #1C1C1D;
+  --global-code-bg-color: #2c3237;
+  --global-text-color: #e8e8e8;
+  --global-text-color-light: #e8e8e8;
+  --global-theme-color: #2698BA;
+  --global-hover-color: #2698BA;
+  --global-footer-bg-color: #e8e8e8;
+  --global-footer-text-color: #1C1C1D;
+  --global-footer-link-color: #000;
+  --global-divider-color: #424246;
+  --global-card-bg-color: #212529;
+}
+
+/* Body styling */
+body {
+  color: var(--global-text-color);
+  background-color: var(--global-bg-color);
+}
+
+/* Links */
+a {
+  color: var(--global-theme-color);
+}
+
+a:hover {
+  color: var(--global-hover-color);
+}
+
+/* Navbar styling to match main site */
+.navbar {
+  border-bottom: 1px solid var(--global-divider-color);
+  background-color: var(--global-bg-color) !important;
+  opacity: 0.95;
+}
+
+.navbar-brand {
+  color: var(--global-text-color) !important;
+  font-weight: bold;
+}
+
+.navbar .nav-link {
+  color: var(--global-text-color) !important;
+}
+
+.navbar .nav-link:hover {
+  color: var(--global-hover-color) !important;
+}
+
+.navbar .nav-link.active {
+  color: var(--global-theme-color) !important;
+  font-weight: bolder;
+}
+
+/* Code styling */
+pre, code {
+  background-color: var(--global-code-bg-color);
+}
+
+code {
+  color: var(--global-theme-color);
+}
+
+/* Cards styling */
+.card {
+  background-color: var(--global-card-bg-color);
+  border-color: var(--global-divider-color);
+}
+
+.card-title {
+  color: var(--global-text-color);
+}
+
+/* Blog post listing */
+.quarto-listing-default .list-group-item {
+  border-color: var(--global-divider-color);
+}
+
+/* Title banner */
+.quarto-title-banner {
+  background-color: var(--global-theme-color);
+}
+
+/* Footer styling */
+.nav-footer {
+  background-color: var(--global-footer-bg-color);
+  color: var(--global-footer-text-color);
+}
+
+.nav-footer a {
+  color: var(--global-footer-link-color);
+}
+
+.nav-footer a:hover {
+  color: var(--global-theme-color);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 2px solid var(--global-theme-color);
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--global-text-color);
+}
+
+/* Dividers */
+hr {
+  border-top-color: var(--global-divider-color);
+}
+
+/* Social icons */
+.bi {
+  color: var(--global-text-color);
+}
+
+.bi:hover {
+  color: var(--global-theme-color);
+}
+
+/* Categories/Tags */
+.quarto-category {
+  background-color: var(--global-theme-color);
+  color: white;
+}
+
+/* About page template adjustments */
+.about-entity .about-link {
+  color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+}
+
+.about-entity .about-link:hover {
+  background-color: var(--global-theme-color);
+  color: white;
+}
+
+/* Listing default adjustments */
+.quarto-listing-default .listing-title {
+  color: var(--global-text-color);
+}
+
+.quarto-listing-default .listing-title:hover {
+  color: var(--global-theme-color);
+}
+
+/* Search box styling */
+.aa-DetachedSearchButton {
+  border-color: var(--global-divider-color);
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--global-hover-color);
+  border-color: var(--global-hover-color);
+}
