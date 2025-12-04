@@ -3,7 +3,7 @@ services:
   blog:
     build: .
     ports:
-      - 5555:5555
+      - 1313:1313
     volumes:
-      - .:/docs
-    command: ["quarto", "preview", "--port", "5555", "--host", "0.0.0.0"]
+      - .:/site
+    command: ["hugo", "server", "--bind", "0.0.0.0", "--port", "1313", "-D"]

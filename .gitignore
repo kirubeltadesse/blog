@@ -1,6 +1,11 @@
+# Hugo
+resources/
+.hugo_build.lock
+
+# Quarto (legacy)
 .quarto/
-_extensions/
+/.quarto/
+
+# General
 *._ipynb_checkpoints/
 .DS_Store
-
-/.quarto/
