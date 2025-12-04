@@ -1,1 +1,287 @@
-/* css styles */
+/* Custom styles to match kirubeltadesse.github.io look and feel */
+
+/* CSS Variables for theming - matching main website */
+:root {
+  --global-bg-color: #fff;
+  --global-code-bg-color: rgba(181, 9, 172, 0.05);
+  --global-text-color: #000;
+  --global-text-color-light: #828282;
+  --global-theme-color: #B509AC;
+  --global-hover-color: #B509AC;
+  --global-footer-bg-color: #1C1C1D;
+  --global-footer-text-color: #e8e8e8;
+  --global-footer-link-color: #fff;
+  --global-divider-color: rgba(0, 0, 0, 0.1);
+  --global-card-bg-color: #fff;
+}
+
+/* Dark mode CSS variables - using Quarto's .quarto-dark class */
+.quarto-dark {
+  --global-bg-color: #1C1C1D;
+  --global-code-bg-color: #2c3237;
+  --global-text-color: #e8e8e8;
+  --global-text-color-light: #e8e8e8;
+  --global-theme-color: #2698BA;
+  --global-hover-color: #2698BA;
+  --global-footer-bg-color: #2c3237;
+  --global-footer-text-color: #e8e8e8;
+  --global-footer-link-color: #e8e8e8;
+  --global-divider-color: #424246;
+  --global-card-bg-color: #212529;
+}
+
+/* Body styling */
+body {
+  color: var(--global-text-color);
+  background-color: var(--global-bg-color);
+}
+
+/* Dark mode - comprehensive background and text fixes */
+body.quarto-dark {
+  background-color: #1C1C1D !important;
+  color: #e8e8e8 !important;
+}
+
+body.quarto-dark #quarto-content,
+body.quarto-dark .quarto-body,
+body.quarto-dark main,
+body.quarto-dark .page-columns,
+body.quarto-dark .quarto-listing,
+body.quarto-dark .column-body,
+body.quarto-dark .column-page {
+  background-color: #1C1C1D !important;
+  color: #e8e8e8 !important;
+}
+
+/* Dark mode text colors for all content */
+body.quarto-dark p,
+body.quarto-dark span,
+body.quarto-dark div:not(.quarto-title-banner),
+body.quarto-dark li,
+body.quarto-dark h1,
+body.quarto-dark h2,
+body.quarto-dark h3,
+body.quarto-dark h4,
+body.quarto-dark h5,
+body.quarto-dark h6,
+body.quarto-dark .listing-description,
+body.quarto-dark .listing-date,
+body.quarto-dark .listing-author,
+body.quarto-dark .listing-title,
+body.quarto-dark .metadata,
+body.quarto-dark .quarto-listing-category-title {
+  color: #e8e8e8 !important;
+}
+
+/* Dark mode links */
+body.quarto-dark a {
+  color: #2698BA !important;
+}
+
+body.quarto-dark a:hover {
+  color: #3ab0d1 !important;
+}
+
+/* Dark mode listing items */
+body.quarto-dark .quarto-listing-default .list-group-item,
+body.quarto-dark .quarto-grid-item {
+  background-color: #1C1C1D !important;
+  color: #e8e8e8 !important;
+  border-color: #424246 !important;
+}
+
+/* Dark mode sidebar */
+body.quarto-dark #quarto-margin-sidebar,
+body.quarto-dark .sidebar,
+body.quarto-dark .quarto-listing-category {
+  background-color: #1C1C1D !important;
+  color: #e8e8e8 !important;
+}
+
+/* Dark mode navbar */
+body.quarto-dark .navbar {
+  background-color: #1C1C1D !important;
+  border-bottom-color: #424246 !important;
+}
+
+body.quarto-dark .navbar-brand,
+body.quarto-dark .navbar .nav-link {
+  color: #e8e8e8 !important;
+}
+
+body.quarto-dark .navbar .nav-link:hover {
+  color: #2698BA !important;
+}
+
+/* Dark mode cards */
+body.quarto-dark .card {
+  background-color: #212529 !important;
+  border-color: #424246 !important;
+}
+
+body.quarto-dark .card-title,
+body.quarto-dark .card-text {
+  color: #e8e8e8 !important;
+}
+
+/* Dark mode footer */
+body.quarto-dark .nav-footer {
+  background-color: #2c3237 !important;
+  color: #e8e8e8 !important;
+}
+
+body.quarto-dark .nav-footer a {
+  color: #e8e8e8 !important;
+}
+
+/* Dark mode code blocks */
+body.quarto-dark pre,
+body.quarto-dark code {
+  background-color: #2c3237 !important;
+  color: #2698BA !important;
+}
+
+/* Links */
+a {
+  color: var(--global-theme-color);
+}
+
+a:hover {
+  color: var(--global-hover-color);
+}
+
+/* Navbar styling to match main site */
+.navbar {
+  border-bottom: 1px solid var(--global-divider-color);
+  background-color: var(--global-bg-color) !important;
+  opacity: 0.95;
+}
+
+.navbar-brand {
+  color: var(--global-text-color) !important;
+  font-weight: bold;
+}
+
+.navbar .nav-link {
+  color: var(--global-text-color) !important;
+}
+
+.navbar .nav-link:hover {
+  color: var(--global-hover-color) !important;
+}
+
+.navbar .nav-link.active {
+  color: var(--global-theme-color) !important;
+  font-weight: bolder;
+}
+
+/* Code styling */
+pre, code {
+  background-color: var(--global-code-bg-color);
+}
+
+code {
+  color: var(--global-theme-color);
+}
+
+/* Cards styling */
+.card {
+  background-color: var(--global-card-bg-color);
+  border-color: var(--global-divider-color);
+}
+
+.card-title {
+  color: var(--global-text-color);
+}
+
+/* Blog post listing */
+.quarto-listing-default .list-group-item {
+  border-color: var(--global-divider-color);
+}
+
+/* Title banner */
+.quarto-title-banner {
+  background-color: var(--global-theme-color);
+}
+
+/* Footer styling */
+.nav-footer {
+  background-color: var(--global-footer-bg-color);
+  color: var(--global-footer-text-color);
+}
+
+.nav-footer a {
+  color: var(--global-footer-link-color);
+}
+
+.nav-footer a:hover {
+  color: var(--global-theme-color);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 2px solid var(--global-theme-color);
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--global-text-color);
+}
+
+/* Dividers */
+hr {
+  border-top-color: var(--global-divider-color);
+}
+
+/* Social icons */
+.bi {
+  color: var(--global-text-color);
+}
+
+.bi:hover {
+  color: var(--global-theme-color);
+}
+
+/* Categories/Tags */
+.quarto-category {
+  background-color: var(--global-theme-color);
+  color: white;
+}
+
+/* About page template adjustments */
+.about-entity .about-link {
+  color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+}
+
+.about-entity .about-link:hover {
+  background-color: var(--global-theme-color);
+  color: white;
+}
+
+/* Listing default adjustments */
+.quarto-listing-default .listing-title {
+  color: var(--global-text-color);
+}
+
+.quarto-listing-default .listing-title:hover {
+  color: var(--global-theme-color);
+}
+
+/* Search box styling */
+.aa-DetachedSearchButton {
+  border-color: var(--global-divider-color);
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--global-hover-color);
+  border-color: var(--global-hover-color);
+}

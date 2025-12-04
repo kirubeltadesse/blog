@@ -4,14 +4,25 @@ project:
 
 website:
   favicon: images/jesus.png
-  # x-card: true
-  title: "{{< iconify geo:ui-earth-west >}} Home"
+  title: "Kirubel Tadesse"
+  site-url: https://kirubeltadesse.github.io/blog/
 
   navbar:
-    logo-href: /../
-    right:
-      - text: "Blogs"
+    logo-href: https://kirubeltadesse.github.io/
+    background: light
+    pinned: true
+    left:
+      - text: "background"
+        href: https://kirubeltadesse.github.io/background/
+      - text: "projects"
+        href: https://kirubeltadesse.github.io/projects/
+      - text: "gallery"
+        href: https://kirubeltadesse.github.io/gallery/
+      - text: "contact"
+        href: https://kirubeltadesse.github.io/contact/
+      - text: "blogs"
         href: /
+    right:
       - about.qmd
       - icon: github
         href: https://github.com/kirubeltadesse
@@ -20,9 +31,14 @@ website:
       - icon: linkedin
         href: https://linkedin.com/in/kirubeltadesse
 
+  page-footer:
+    background: dark
+    center: |
+      © 2024 Kirubel Tadesse
+
 format:
   html:
     theme:
-      - cosmo
-      - brand
+      light: cosmo
+      dark: darkly
     css: styles.css
