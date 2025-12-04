@@ -2,9 +2,12 @@
 resources/
 .hugo_build.lock
 
-# Quarto (legacy)
+# Quarto
 .quarto/
 /.quarto/
+
+# Generated files in docs (Hugo copies source files)
+docs/**/*.qmd
 
 # General
 *._ipynb_checkpoints/

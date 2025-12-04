@@ -1,26 +1,25 @@
 ---
-title: Start going through fast.ai open course and trained image classifier
-date: 2024-03-07T00:00:00.000Z
-author: Kirubel Tadesse
-categories:
+title: "Start going through fast.ai open course and trained image classifier"
+date: 2024-03-07
+author: "Kirubel Tadesse"
+categories: 
   - ML
   - Classification
   - Kaggle
 ---
 
-
-``` python
+```python
 from fastcore.all import *
 from fastbook import search_images_ddg
 ```
 
-``` python
+```python
 def search_images(term, max_images=30):
     print(f"Searching for '{term}'")
     return search_images_ddg(term, max_images)
 ```
 
-``` python
+```python
 urls = search_images('bird photos', max_images=1)
 urls[0]
 ```
@@ -35,7 +34,7 @@ urls[0]
 
 ## Downloading image using the URL
 
-``` python
+```python
 from fastdownload import download_url
 dest = 'bird.jpg'
 download_url(urls[0], dest, show_progress=False)
@@ -45,34 +44,28 @@ im = Image.open(dest)
 im.to_thumb(256,256)
 ```
 
-<figure>
-<img src="output_6_0.png" alt="png" />
-<figcaption aria-hidden="true">png</figcaption>
-</figure>
+![png](output_6_0.png)
 
-``` python
+```python
 # hide
 ```
 
-``` python
+```python
 download_url(search_images('forest photos', max_images=1)[0], 'forest.jpg', show_progress=False)
 Image.open('forest.jpg').to_thumb(256,256)
 ```
 
     Searching for 'forest photos'
 
-<figure>
-<img src="output_8_1.png" alt="png" />
-<figcaption aria-hidden="true">png</figcaption>
-</figure>
+![png](output_8_1.png)
 
-``` python
+```python
 searches = 'forest', 'bird'
 path = Path('bird_or_not')
 from time import sleep
 ```
 
-``` python
+```python
 for o in searches:
     dest = (path/o)
     dest.mkdir(exist_ok=True, parents=True)
@@ -94,7 +87,7 @@ for o in searches:
 
 ## Step 2: Train our model
 
-``` python
+```python
 failed = verify_images(get_image_files(path))
 failed.map(Path.unlink)
 len(failed)
@@ -104,7 +97,7 @@ len(failed)
 
 ### Using the DataLoaders
 
-``` python
+```python
 dls = DataBlock(
     blocks=(ImageBlock, CategoryBlock),
     get_items=get_image_files,
@@ -114,16 +107,13 @@ dls = DataBlock(
 ).dataloaders(path, bs=32)
 ```
 
-``` python
+```python
 dls.show_batch(max_n=6)
 ```
 
-<figure>
-<img src="output_15_0.png" alt="png" />
-<figcaption aria-hidden="true">png</figcaption>
-</figure>
+![png](output_15_0.png)
 
-``` python
+```python
 learn = vision_learner(dls, resnet18, metrics=error_rate)
 learn.fine_tune(3)
 ```
@@ -146,46 +136,28 @@ learn.fine_tune(3)
         background: #F44336;
     }
 </style>
+
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: left;">
-<th>
-epoch
-</th>
-<th>
-train_loss
-</th>
-<th>
-valid_loss
-</th>
-<th>
-error_rate
-</th>
-<th>
-time
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-0
-</td>
-<td>
-0.349523
-</td>
-<td>
-0.017476
-</td>
-<td>
-0.012903
-</td>
-<td>
-00:42
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.349523</td>
+      <td>0.017476</td>
+      <td>0.012903</td>
+      <td>00:42</td>
+    </tr>
+  </tbody>
 </table>
+
 <style>
     /* Turns off some styling */
     progress {
@@ -201,84 +173,45 @@ time
         background: #F44336;
     }
 </style>
+
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: left;">
-<th>
-epoch
-</th>
-<th>
-train_loss
-</th>
-<th>
-valid_loss
-</th>
-<th>
-error_rate
-</th>
-<th>
-time
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-0
-</td>
-<td>
-0.055393
-</td>
-<td>
-0.066558
-</td>
-<td>
-0.012903
-</td>
-<td>
-00:50
-</td>
-</tr>
-<tr>
-<td>
-1
-</td>
-<td>
-0.044839
-</td>
-<td>
-0.027144
-</td>
-<td>
-0.012903
-</td>
-<td>
-00:52
-</td>
-</tr>
-<tr>
-<td>
-2
-</td>
-<td>
-0.026491
-</td>
-<td>
-0.048613
-</td>
-<td>
-0.012903
-</td>
-<td>
-00:49
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.055393</td>
+      <td>0.066558</td>
+      <td>0.012903</td>
+      <td>00:50</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.044839</td>
+      <td>0.027144</td>
+      <td>0.012903</td>
+      <td>00:52</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.026491</td>
+      <td>0.048613</td>
+      <td>0.012903</td>
+      <td>00:49</td>
+    </tr>
+  </tbody>
 </table>
 
 ## Step 3: Use our model (and build your own!)
 
-``` python
+```python
 is_bird,_,probs = learn.predict(PILImage.create('bird.jpg'))
 print(f"This is a: {is_bird}.")
 print(f"Probability it's a bird: {probs[0]:.4f}")

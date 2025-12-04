@@ -1,13 +1,21 @@
+FROM klakegg/hugo:latest AS hugo
+
 FROM ubuntu:22.04 
 
 RUN apt-get update && apt-get install -y \
     wget \
-    git
+    pandoc \
+    libssl-dev \
+    libcurl4 \
+    libicu70
 
-# Install Hugo
-RUN wget https://github.com/gohugoio/hugo/releases/download/v0.146.0/hugo_extended_0.146.0_linux-amd64.deb \
-    && dpkg -i hugo_extended_0.146.0_linux-amd64.deb \
-    && rm hugo_extended_0.146.0_linux-amd64.deb
+# Install Quarto
+RUN wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.7.33/quarto-1.7.33-linux-amd64.deb \
+    && dpkg -i quarto-1.7.33-linux-amd64.deb \
+    && rm quarto-1.7.33-linux-amd64.deb
+
+# Copy Hugo from the klakegg image
+COPY --from=hugo /usr/lib/hugo/hugo /usr/local/bin/hugo
 
 WORKDIR /site
 
@@ -15,5 +23,6 @@ EXPOSE 1313
 
 COPY . /site/
 
-RUN hugo --gc --minify
+# Render Quarto files to Hugo markdown, then build with Hugo
+RUN quarto render && hugo --gc --minify
 
